@@ -1,11 +1,30 @@
-import { createServer, IncomingMessage, ServerResponse } from "http";
-import { writeFile, writeFileSync } from "fs";
-import { requestHandlerRoutes } from "./routes";
-// const routes = require('./routes');
-const fs = require('fs');
+import express, { Application } from 'express';
+import { IncomingMessage, ServerResponse } from 'http'; 
+import bodyParser from 'body-parser';
+import path from 'path';
+import adminRouter from './routes/admin';
+import shopRouter from './routes/shop';
 
 
-const port = 3000;
-const server = createServer(requestHandlerRoutes);
 
-server.listen(3000);
+
+const app:Application = express();
+
+
+
+
+app.use(bodyParser.urlencoded({extended:false}));
+
+app.use(express.static(path.join(__dirname,'../','public')))
+
+app.use("/admin",adminRouter); 
+
+app.use(shopRouter); 
+
+app.use( (req, res ,next) =>{
+   res.status(404).sendFile(path.join(__dirname, '../', 'src', 'views', 'Error.html'))
+})
+  
+
+
+app.listen(3000);
