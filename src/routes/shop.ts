@@ -6,8 +6,9 @@ import { products } from "./admin";
 
 
 shopRouter.get("/", (req, res, next) => {
-  console.log(products)
-  res.sendFile(path.join(__dirname, '../../','src', 'views','shop.html'))
+  
+  res.render('shop')
+  // res.sendFile(path.join(__dirname, '../../','src', 'views','shop.html'))
 });
 
 export default shopRouter;

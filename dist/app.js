@@ -9,6 +9,8 @@ const path_1 = __importDefault(require("path"));
 const admin_1 = __importDefault(require("./routes/admin"));
 const shop_1 = __importDefault(require("./routes/shop"));
 const app = (0, express_1.default)();
+app.set('view engine', 'pug');
+app.set('views', path_1.default.join('src', 'views'));
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../', 'public')));
 app.use("/admin", admin_1.default);

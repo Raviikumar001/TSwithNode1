@@ -9,6 +9,9 @@ import shopRouter from './routes/shop';
 
 
 const app:Application = express();
+app.set('view engine', 'pug');
+app.set('views', path.join('src','views'));
+
 
 
 
