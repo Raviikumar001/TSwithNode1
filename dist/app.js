@@ -16,6 +16,7 @@ app.use(express_1.default.static(path_1.default.join(__dirname, '../', 'public')
 app.use("/admin", admin_1.default);
 app.use(shop_1.default);
 app.use((req, res, next) => {
-    res.status(404).sendFile(path_1.default.join(__dirname, '../', 'src', 'views', 'Error.html'));
+    res.status(404).render('Error', { doctitle: 'Error' });
+    // res.status(404).sendFile(path.join(__dirname, '../', 'src', 'views', 'Error.html'))
 });
 app.listen(3000);

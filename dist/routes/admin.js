@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.products = void 0;
 const express_1 = __importDefault(require("express"));
-const path_1 = __importDefault(require("path"));
 const adminRouter = express_1.default.Router();
 exports.products = [];
 //admin/add-prduct  => GET
 adminRouter.get('/add-product', (req, res, next) => {
-    res.sendFile(path_1.default.join(__dirname, '../../', 'src', 'views', 'addproduct.html'));
+    res.render('addproduct', { pageTitle: 'Add product' });
+    // res.sendFile(path.join(__dirname, '../../', 'src', 'views','addproduct.html'))
 });
 //admin/add-product => POST
 adminRouter.post('/add-product', (req, res, next) => {
