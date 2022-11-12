@@ -13,7 +13,7 @@ export const products: Title[]= [];
 
 //admin/add-prduct  => GET
 adminRouter.get('/add-product', (req,res,next)=>{
-    res.render('addproduct',{pageTitle: 'Add product'})
+    res.render('addproduct',{pageTitle: 'Add product', path:'/admin/add-product'})
     // res.sendFile(path.join(__dirname, '../../', 'src', 'views','addproduct.html'))
  
  });

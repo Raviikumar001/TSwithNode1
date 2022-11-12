@@ -9,7 +9,7 @@ const adminRouter = express_1.default.Router();
 exports.products = [];
 //admin/add-prduct  => GET
 adminRouter.get('/add-product', (req, res, next) => {
-    res.render('addproduct', { pageTitle: 'Add product' });
+    res.render('addproduct', { pageTitle: 'Add product', path: '/admin/add-product' });
     // res.sendFile(path.join(__dirname, '../../', 'src', 'views','addproduct.html'))
 });
 //admin/add-product => POST
